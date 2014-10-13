@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="history">
+  
+  <table border = "1">
+    {% for p in pages %}
+      <tr>
+        <td>{{p.edited_time.strftime('%c')}}</td>
+      <td>{{p.content[0:99]}}</td>
+      <td><a href="{{path}}?v={{p.version}}">view</a></td>
+      <td><a href="/_edit{{path}}">edit</a></td>
+      </tr>
+    {% endfor %}
+  </table>
+  
+</div>
+{% endblock %}
